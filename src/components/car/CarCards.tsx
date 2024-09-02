@@ -60,16 +60,17 @@ export default function CarCards(data: ICardata) {
 
   console.log(data);
   const navigate = useNavigate();
+
   async function getAllProducts() {
     const data = await CartApi.getCartData().then((value) => {
       return value;
     });
+    if (data === undefined) return;
     setAllData(data.carts.map((value: any) => value.products));
-    setAllData(data);
+    // setAllData(data);
   }
-  useEffect(() => {
-    getAllProducts();
-  });
+  // getAllProducts();
+
   const onClickGoToDetails = (id: number) => {
     navigate(`/carwithdetails/${id}`, { state: { itens: allData } });
   };
@@ -85,26 +86,27 @@ export default function CarCards(data: ICardata) {
     <div className={styles.container}>
       <Row xs={1} md={2} className="g-4">
         {/* {Array.from({ length: 4 }).map((_, idx) => ( */}
-        {allData.map((value, idx) =>
-          value.products.map((cars) => (
-            <Col key={idx}>
-              <Card>
-                <Card.Img
-                  className={styles.imgContainer}
-                  variant="top"
-                  src={cars.thumbnail}
-                />
-                <Card.Body>
-                  <Card.Title className={styles.titleContainer}>
-                    <h2>{cars.title}</h2>
-                  </Card.Title>
-                  <Card.Text className={styles.textContainer}>
-                    <span>
-                      <span>Price Starting at</span>
-                      {formatTer.format(cars.price)}
-                    </span>
+        {allData !== undefined &&
+          allData.map((value, idx) =>
+            value.products.map((cars) => (
+              <Col key={idx}>
+                <Card>
+                  <Card.Img
+                    className={styles.imgContainer}
+                    variant="top"
+                    src={cars.thumbnail}
+                  />
+                  <Card.Body>
+                    <Card.Title className={styles.titleContainer}>
+                      <h2>{cars.title}</h2>
+                    </Card.Title>
+                    <Card.Text className={styles.textContainer}>
+                      <span>
+                        <span>Price Starting at</span>
+                        {formatTer.format(cars.price)}
+                      </span>
 
-                    {/* <span>
+                      {/* <span>
                       Quantity:&nbsp;
                       {cars.quantity}
                     </span>
@@ -120,33 +122,33 @@ export default function CarCards(data: ICardata) {
                       discountedTotal:&nbsp;
                       {cars.discountedTotal}
                     </span> */}
-                  </Card.Text>
-                  <section className={styles.btnContainer}>
-                    <Button
-                      className={styles.btns}
-                      onClick={() => onClickGoToDetails(value.id)}
-                    >
-                      More Details
-                    </Button>{" "}
-                    <Button
-                      className={styles.btns}
-                      onClick={() => onClickGoToCheckout(value.id)}
-                    >
-                      Buy Now
-                    </Button>
-                  </section>
-                </Card.Body>
-                {/* <Card.Footer>
+                    </Card.Text>
+                    <section className={styles.btnContainer}>
+                      <Button
+                        className={styles.btns}
+                        onClick={() => onClickGoToDetails(value.id)}
+                      >
+                        More Details
+                      </Button>{" "}
+                      <Button
+                        className={styles.btns}
+                        onClick={() => onClickGoToCheckout(value.id)}
+                      >
+                        Buy Now
+                      </Button>
+                    </section>
+                  </Card.Body>
+                  {/* <Card.Footer>
                   {value.total}
                   {value.discountedTotal}
                   {value.userId}
                   {value.totalProducts}
                   {value.totalQuantity}
                 </Card.Footer> */}
-              </Card>
-            </Col>
-          ))
-        )}
+                </Card>
+              </Col>
+            ))
+          )}
       </Row>
     </div>
   );

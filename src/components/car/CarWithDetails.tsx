@@ -56,7 +56,8 @@ export default function CarWithDetails() {
 
   useEffect(() => {
     const { state } = location.state as { state: IProps[] };
-    if (state) setAllData(state);
+
+    if (state !== undefined) setAllData(state);
   }, [location]);
 
   const formatTer = new Intl.NumberFormat("pt-BR", {
@@ -70,57 +71,58 @@ export default function CarWithDetails() {
   return (
     <div className={styles.container}>
       <Row xs={1} md={2} className="g-4">
-        {allData.map((value, idx) =>
-          value.products.map((cars) => (
-            <Col key={idx}>
-              <Card>
-                <Card.Img
-                  className={styles.imgContainer}
-                  variant="top"
-                  src={cars.thumbnail}
-                />
-                <Card.Body>
-                  <Card.Title className={styles.titleContainer}>
-                    <h2>{cars.title}</h2>
-                  </Card.Title>
-                  <Card.Text className={styles.textContainer}>
-                    <span>
-                      <span>Price Starting at</span>
-                      {formatTer.format(cars.price)}
-                    </span>
+        {allData !== undefined &&
+          allData.map((value, idx) =>
+            value.products.map((cars) => (
+              <Col key={idx}>
+                <Card>
+                  <Card.Img
+                    className={styles.imgContainer}
+                    variant="top"
+                    src={cars.thumbnail}
+                  />
+                  <Card.Body>
+                    <Card.Title className={styles.titleContainer}>
+                      <h2>{cars.title}</h2>
+                    </Card.Title>
+                    <Card.Text className={styles.textContainer}>
+                      <span>
+                        <span>Price Starting at</span>
+                        {formatTer.format(cars.price)}
+                      </span>
 
-                    <span>Quantity {cars.quantity}</span>
-                    <span>Total {formatTer.format(cars.total)}</span>
+                      <span>Quantity {cars.quantity}</span>
+                      <span>Total {formatTer.format(cars.total)}</span>
+                      <span>
+                        Discount {formatTer.format(cars.discountPercentage)}
+                      </span>
+                      <span>
+                        discountedTotal &nbsp;
+                        {formatTer.format(cars.discountedTotal)}
+                      </span>
+                    </Card.Text>
+                    <section className={styles.btnContainer}>
+                      <Button
+                        className={styles.btns}
+                        onClick={() => onClickGoToCheckout(cars.id)}
+                      >
+                        Buy Now
+                      </Button>
+                    </section>
+                  </Card.Body>
+                  <Card.Footer className={styles.footerContainer}>
+                    <span>User ID {value.userId}</span>
+                    <span>Total Products {value.totalProducts}</span>
+                    <span>Total Quantity {value.totalQuantity}</span>
                     <span>
-                      Discount {formatTer.format(cars.discountPercentage)}
+                      Total Discount{formatTer.format(value.discountedTotal)}
                     </span>
-                    <span>
-                      discountedTotal &nbsp;
-                      {formatTer.format(cars.discountedTotal)}
-                    </span>
-                  </Card.Text>
-                  <section className={styles.btnContainer}>
-                    <Button
-                      className={styles.btns}
-                      onClick={() => onClickGoToCheckout(cars.id)}
-                    >
-                      Buy Now
-                    </Button>
-                  </section>
-                </Card.Body>
-                <Card.Footer className={styles.footerContainer}>
-                  <span>User ID {value.userId}</span>
-                  <span>Total Products {value.totalProducts}</span>
-                  <span>Total Quantity {value.totalQuantity}</span>
-                  <span>
-                    Total Discount{formatTer.format(value.discountedTotal)}
-                  </span>
-                  <span>Total {formatTer.format(value.total)}</span>
-                </Card.Footer>
-              </Card>
-            </Col>
-          ))
-        )}
+                    <span>Total {formatTer.format(value.total)}</span>
+                  </Card.Footer>
+                </Card>
+              </Col>
+            ))
+          )}
       </Row>
     </div>
   );
