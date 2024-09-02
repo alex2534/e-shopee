@@ -71,7 +71,7 @@ export default function CarWithDetails() {
     <div className={styles.container}>
       <Row xs={1} md={2} className="g-4">
         {allData.map((value, idx) =>
-          value.products.map((cars, index) => (
+          value.products.map((cars) => (
             <Col key={idx}>
               <Card>
                 <Card.Img

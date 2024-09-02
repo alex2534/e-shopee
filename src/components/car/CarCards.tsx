@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import CartApi from "../../api/CartApi";
 import styles from "./cars.module.css";
 import { Button } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 interface IProps {
   id: number;
@@ -58,6 +58,7 @@ export default function CarCards(data: ICardata) {
     },
   ]);
 
+  console.log(data);
   const navigate = useNavigate();
   async function getAllProducts() {
     const data = await CartApi.getCartData().then((value) => {
@@ -66,6 +67,9 @@ export default function CarCards(data: ICardata) {
     setAllData(data.carts.map((value: any) => value.products));
     setAllData(data);
   }
+  useEffect(() => {
+    getAllProducts();
+  });
   const onClickGoToDetails = (id: number) => {
     navigate(`/carwithdetails/${id}`, { state: { itens: allData } });
   };
@@ -82,7 +86,7 @@ export default function CarCards(data: ICardata) {
       <Row xs={1} md={2} className="g-4">
         {/* {Array.from({ length: 4 }).map((_, idx) => ( */}
         {allData.map((value, idx) =>
-          value.products.map((cars, index) => (
+          value.products.map((cars) => (
             <Col key={idx}>
               <Card>
                 <Card.Img
@@ -124,7 +128,12 @@ export default function CarCards(data: ICardata) {
                     >
                       More Details
                     </Button>{" "}
-                    <Button className={styles.btns} onClick={() => onClickGoToCheckout(value.id)}>Buy Now</Button>
+                    <Button
+                      className={styles.btns}
+                      onClick={() => onClickGoToCheckout(value.id)}
+                    >
+                      Buy Now
+                    </Button>
                   </section>
                 </Card.Body>
                 {/* <Card.Footer>

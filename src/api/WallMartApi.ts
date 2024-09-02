@@ -16,8 +16,8 @@ export default class WallMartApi {
 
     try {
       const response = await axios.request(options);
-      console.log( response);
-      const values =  response;
+      console.log(response);
+      // const values =  response;
       return response.data;
     } catch (error) {
       console.error(error);
