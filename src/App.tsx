@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { NotFound } from "./components/error/NotFound";
 import CartSearch from "./components/car/CartSearch";
-import CarWithDetails from "./components/car/CarWithDetails";
+import CarWithDetails from "./components/car/CarDetails";
 import CarCheckout from "./components/car/CarCheckout";
 
 function App() {

@@ -56,6 +56,72 @@ export default function CarCards(data: ICardata) {
       totalProducts: 4,
       totalQuantity: 15,
     },
+    {
+      id: 1,
+      products: [
+        {
+          id: 168,
+          title: "Charger SXT RWD",
+          price: 32999.99,
+          quantity: 3,
+          total: 98999.97,
+          discountPercentage: 13.39,
+          discountedTotal: 85743.87,
+          thumbnail:
+            "https://cdn.dummyjson.com/products/images/vehicle/Charger%20SXT%20RWD/thumbnail.png",
+          images: [],
+        },
+      ],
+      total: 103774.85,
+      discountedTotal: 89686.65,
+      userId: 33,
+      totalProducts: 4,
+      totalQuantity: 15,
+    },
+    {
+      id: 1,
+      products: [
+        {
+          id: 168,
+          title: "Charger SXT RWD",
+          price: 32999.99,
+          quantity: 3,
+          total: 98999.97,
+          discountPercentage: 13.39,
+          discountedTotal: 85743.87,
+          thumbnail:
+            "https://cdn.dummyjson.com/products/images/vehicle/Charger%20SXT%20RWD/thumbnail.png",
+          images: [],
+        },
+      ],
+      total: 103774.85,
+      discountedTotal: 89686.65,
+      userId: 33,
+      totalProducts: 4,
+      totalQuantity: 15,
+    },
+    {
+      id: 1,
+      products: [
+        {
+          id: 168,
+          title: "Charger SXT RWD",
+          price: 32999.99,
+          quantity: 3,
+          total: 98999.97,
+          discountPercentage: 13.39,
+          discountedTotal: 85743.87,
+          thumbnail:
+            "https://cdn.dummyjson.com/products/images/vehicle/Charger%20SXT%20RWD/thumbnail.png",
+          images: [],
+        },
+      ],
+      total: 103774.85,
+      discountedTotal: 89686.65,
+      userId: 33,
+      totalProducts: 4,
+      totalQuantity: 15,
+    },
   ]);
 
   console.log(data);
@@ -77,6 +143,7 @@ export default function CarCards(data: ICardata) {
 
   const onClickGoToCheckout = (id: number) => {
     navigate(`/carcheckout/${id}`, { state: { itens: allData } });
+    getAllProducts;
   };
   const formatTer = new Intl.NumberFormat("pt-BR", {
     style: "currency",
@@ -84,13 +151,12 @@ export default function CarCards(data: ICardata) {
   });
   return (
     <div className={styles.container}>
-      <button onClick={getAllProducts}></button>
-      <Row xs={1} md={2} className="g-4">
+      <Row xs={1} className={styles.colContainer}>
         {/* {Array.from({ length: 4 }).map((_, idx) => ( */}
         {allData !== undefined &&
-          allData.map((value, idx) =>
+          allData.map((value) =>
             value.products.map((cars) => (
-              <Col key={idx}>
+              <Col className={styles.col}>
                 <Card>
                   <Card.Img
                     className={styles.imgContainer}

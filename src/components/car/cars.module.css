@@ -1,10 +1,18 @@
 .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin-left: 2%;
   border-radius: 8px;
-  box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, 0.2);
+}
+.colContainer {
+  display: flex;
+  flex-direction: row;
+}
+.col {
+  box-shadow: 12px 12px 2px 1px rgba(15, 15, 16, 0.2);
+  border-radius: 8px;
   offset: 1px;
+  margin: 2rem;
 }
 
 .imgContainer {
@@ -12,16 +20,14 @@
   border-top-right-radius: 8px;
 }
 .titleContainer {
+  display: flex;
+  justify-content: center;
   font-weight: 800;
-  margin-left: 3%;
-  margin-right: 3%;
 }
 
 .textContainer {
   display: flex;
-  flex-direction: column;
-  margin-left: 3%;
-  margin-right: 3%;
+  justify-content: center;
   font-weight: 600;
   font-style: italic;
   & > span {
@@ -43,8 +49,9 @@
 .btnContainer {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 18%;
+  justify-content: space-around;
+  margin-left: 1rem;
+  width: 90%;
 }
 .btns {
   display: flex;

@@ -60,10 +60,12 @@ export default function CartSearch() {
 
   return (
     <>
-      <button onClick={getAllProducts}>Get All</button>
-      <h1>CartSearch</h1>
-      <h2>Under Construction </h2>
-      <CarCards data={allData} />
+      <button onClick={getAllProducts}></button>
+      <div>
+        <h1>CartSearch</h1>
+        <h2>Under Construction </h2>
+        <CarCards data={allData} />
+      </div>
     </>
   );
 }
