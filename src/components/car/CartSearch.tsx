@@ -3,7 +3,7 @@ import CartApi from "../../api/CartApi";
 import CarCards from "./CarCards";
 
 interface IProps {
-  id: number;
+ 
   products: [
     {
       id: number;
@@ -17,50 +17,28 @@ interface IProps {
       images: string[];
     }
   ];
-  total: number;
-  discountedTotal: number;
-  userId: number;
-  totalProducts: number;
-  totalQuantity: number;
 }
 
 export default function CartSearch() {
-  const [allData, setAllData] = useState<IProps[]>([
-    {
-      id: 1,
-      products: [
-        {
-          id: 168,
-          title: "Charger SXT RWD",
-          price: 32999.99,
-          quantity: 3,
-          total: 98999.97,
-          discountPercentage: 13.39,
-          discountedTotal: 85743.87,
-          thumbnail:
-            "https://cdn.dummyjson.com/products/images/vehicle/Charger%20SXT%20RWD/thumbnail.png",
-          images: [],
-        },
-      ],
-      total: 103774.85,
-      discountedTotal: 89686.65,
-      userId: 33,
-      totalProducts: 4,
-      totalQuantity: 15,
-    },
-  ]); //CartApi.getCartData();
+
+  const [allData, setAllData] = useState<IProps[]>([]); //CartApi.getCartData();
   async function getAllProducts() {
-    const data = await CartApi.getCartData().then((value) => {
-      return value;
-    });
-    setAllData(data.carts.map((value: any) => value.products));
+    try{
+      const data = await CartApi.getCartData().then((value) => {
+        console.log(value);
+        return value;
+      });
+      setAllData(data);
+    } catch(error){
+      console.log("error");
+    }
   }
 
   console.log(allData);
 
   return (
     <>
-      <button onClick={getAllProducts}></button>
+      <button onClick={getAllProducts}>Click</button>
       <div>
         <h1>CartSearch</h1>
         <h2>Under Construction </h2>

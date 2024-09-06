@@ -2,13 +2,16 @@ import axios from "axios";
 
 export default class CartApi {
   //
-  static getCartData() {
-    //
-    const response = axios.get("https://dummyjson.com/carts").then((value) => {
-      console.log(value.data);
-      return value.data;
-    });
-    const data = response;
-    return data;
+ 
+
+  public static async getCartData() {
+  try {
+    const response = await axios.get("https://dummyjson.com/carts");
+    const cartsValues =  response.data.carts.map((e: any) => e)
+    return cartsValues;
+    // return response.data;
+  } catch (error) {
+    console.error(error);
   }
+}
 }

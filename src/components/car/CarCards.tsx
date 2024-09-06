@@ -8,7 +8,7 @@ import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 interface IProps {
-  id: number;
+ 
   products: [
     {
       id: number;
@@ -22,128 +22,34 @@ interface IProps {
       images: string[];
     }
   ];
-  total: number;
-  discountedTotal: number;
-  userId: number;
-  totalProducts: number;
-  totalQuantity: number;
 }
-
 interface ICardata {
   data: IProps[];
 }
-export default function CarCards(data: ICardata) {
-  const [allData, setAllData] = useState<IProps[]>([
-    {
-      id: 1,
-      products: [
-        {
-          id: 168,
-          title: "Charger SXT RWD",
-          price: 32999.99,
-          quantity: 3,
-          total: 98999.97,
-          discountPercentage: 13.39,
-          discountedTotal: 85743.87,
-          thumbnail:
-            "https://cdn.dummyjson.com/products/images/vehicle/Charger%20SXT%20RWD/thumbnail.png",
-          images: [],
-        },
-      ],
-      total: 103774.85,
-      discountedTotal: 89686.65,
-      userId: 33,
-      totalProducts: 4,
-      totalQuantity: 15,
-    },
-    {
-      id: 1,
-      products: [
-        {
-          id: 168,
-          title: "Charger SXT RWD",
-          price: 32999.99,
-          quantity: 3,
-          total: 98999.97,
-          discountPercentage: 13.39,
-          discountedTotal: 85743.87,
-          thumbnail:
-            "https://cdn.dummyjson.com/products/images/vehicle/Charger%20SXT%20RWD/thumbnail.png",
-          images: [],
-        },
-      ],
-      total: 103774.85,
-      discountedTotal: 89686.65,
-      userId: 33,
-      totalProducts: 4,
-      totalQuantity: 15,
-    },
-    {
-      id: 1,
-      products: [
-        {
-          id: 168,
-          title: "Charger SXT RWD",
-          price: 32999.99,
-          quantity: 3,
-          total: 98999.97,
-          discountPercentage: 13.39,
-          discountedTotal: 85743.87,
-          thumbnail:
-            "https://cdn.dummyjson.com/products/images/vehicle/Charger%20SXT%20RWD/thumbnail.png",
-          images: [],
-        },
-      ],
-      total: 103774.85,
-      discountedTotal: 89686.65,
-      userId: 33,
-      totalProducts: 4,
-      totalQuantity: 15,
-    },
-    {
-      id: 1,
-      products: [
-        {
-          id: 168,
-          title: "Charger SXT RWD",
-          price: 32999.99,
-          quantity: 3,
-          total: 98999.97,
-          discountPercentage: 13.39,
-          discountedTotal: 85743.87,
-          thumbnail:
-            "https://cdn.dummyjson.com/products/images/vehicle/Charger%20SXT%20RWD/thumbnail.png",
-          images: [],
-        },
-      ],
-      total: 103774.85,
-      discountedTotal: 89686.65,
-      userId: 33,
-      totalProducts: 4,
-      totalQuantity: 15,
-    },
-  ]);
-
-  console.log(data);
+export default function CarCards({ data }: ICardata) {
+  
+  console.log(data.map((e: any) => e.products.map((e: any) => e)));
   const navigate = useNavigate();
 
-  async function getAllProducts() {
-    const data = await CartApi.getCartData().then((value) => {
-      return value;
-    });
-    if (data === undefined) return;
-    setAllData(data.carts.map((value: any) => value.products));
-    // setAllData(data);
-  }
+  // async function getAllProducts() {
+  //   const data = await CartApi.getCartData().then((value) => {
+  //     return value;
+  //   });
+  //   // if (data === undefined) return;
+  //   console.log(data.map((e: any) => e), "carts");
+     
+  //   // setAllData(data.carts.map((value: any) => value.products));
+  //   // setAllData(data);
+  // }
   // getAllProducts();
 
   const onClickGoToDetails = (id: number) => {
-    navigate(`/carwithdetails/${id}`, { state: { itens: allData } });
+    navigate(`/carwithdetails/${id}`, { state: { itens: data } });
   };
 
   const onClickGoToCheckout = (id: number) => {
-    navigate(`/carcheckout/${id}`, { state: { itens: allData } });
-    getAllProducts;
+    navigate(`/carcheckout/${id}`, { state: { itens: data } });
+    // getAllProducts;
   };
   const formatTer = new Intl.NumberFormat("pt-BR", {
     style: "currency",
@@ -153,8 +59,8 @@ export default function CarCards(data: ICardata) {
     <div className={styles.container}>
       <Row xs={1} className={styles.colContainer}>
         {/* {Array.from({ length: 4 }).map((_, idx) => ( */}
-        {allData !== undefined &&
-          allData.map((value) =>
+        {data !== undefined &&
+          data.map((value) =>
             value.products.map((cars) => (
               <Col className={styles.col}>
                 <Card>
@@ -193,13 +99,13 @@ export default function CarCards(data: ICardata) {
                     <section className={styles.btnContainer}>
                       <Button
                         className={styles.btns}
-                        onClick={() => onClickGoToDetails(value.id)}
+                        // onClick={() => onClickGoToDetails(value.id)}
                       >
                         More Details
                       </Button>{" "}
                       <Button
                         className={styles.btns}
-                        onClick={() => onClickGoToCheckout(value.id)}
+                        // onClick={() => onClickGoToCheckout(value)}
                       >
                         Buy Now
                       </Button>
