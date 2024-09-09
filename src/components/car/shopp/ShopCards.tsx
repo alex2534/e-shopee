@@ -2,13 +2,12 @@ import { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import CartApi from "../../api/CartApi";
-import styles from "./cars.module.css";
 import { Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import styles from "./shoopCards.module.css";
 
 interface IProps {
- 
+
   products: [
     {
       id: number;
@@ -26,8 +25,8 @@ interface IProps {
 interface ICardata {
   data: IProps[];
 }
-export default function CarCards({ data }: ICardata) {
-  
+export default function shopCards({ data }: ICardata) {
+
   console.log(data.map((e: any) => e.products.map((e: any) => e)));
   const navigate = useNavigate();
 
@@ -37,7 +36,7 @@ export default function CarCards({ data }: ICardata) {
   //   });
   //   // if (data === undefined) return;
   //   console.log(data.map((e: any) => e), "carts");
-     
+
   //   // setAllData(data.carts.map((value: any) => value.products));
   //   // setAllData(data);
   // }
@@ -58,7 +57,6 @@ export default function CarCards({ data }: ICardata) {
   return (
     <div className={styles.container}>
       <Row xs={1} className={styles.colContainer}>
-        {/* {Array.from({ length: 4 }).map((_, idx) => ( */}
         {data !== undefined &&
           data.map((value) =>
             value.products.map((cars) => (
@@ -69,55 +67,38 @@ export default function CarCards({ data }: ICardata) {
                     variant="top"
                     src={cars.thumbnail}
                   />
-                  <Card.Body>
-                    <Card.Title className={styles.titleContainer}>
-                      <h2>{cars.title}</h2>
-                    </Card.Title>
-                    <Card.Text className={styles.textContainer}>
-                      <span>
-                        <span>Price Starting at</span>
+                  <Card.Body className={styles.bodyContainer}>
+                    <div className={styles.titleContainer}>
+                      <h4>{cars.title}</h4>
+                    </div>
+                    <div className={styles.textContainer}>
+                      <div>
+                        <div>Price Starting at</div>
                         {formatTer.format(cars.price)}
-                      </span>
-
-                      {/* <span>
-                      Quantity:&nbsp;
-                      {cars.quantity}
-                    </span>
-                    <span>
-                      Total:$&nbsp;
-                      {cars.total}
-                    </span>
-                    <span>
-                      Discount:&nbsp;
-                      {cars.discountPercentage}
-                    </span>
-                    <span>
-                      discountedTotal:&nbsp;
-                      {cars.discountedTotal}
-                    </span> */}
-                    </Card.Text>
-                    <section className={styles.btnContainer}>
-                      <Button
-                        className={styles.btns}
-                        // onClick={() => onClickGoToDetails(value.id)}
-                      >
-                        More Details
-                      </Button>{" "}
-                      <Button
-                        className={styles.btns}
-                        // onClick={() => onClickGoToCheckout(value)}
-                      >
-                        Buy Now
-                      </Button>
-                    </section>
+                      </div>
+                      <div>In Stock {cars.quantity}</div>
+                    </div>
+                    <div className={styles.btnContainer}>
+                      <div className={styles.btnsContainer}>
+                        <div>
+                          <Button
+                            className={styles.btns}
+                          // onClick={() => onClickGoToDetails(value.id)}
+                          >
+                            More Details
+                          </Button>
+                        </div>
+                        <div>
+                          <Button
+                            className={styles.btns}
+                            onClick={() => onClickGoToCheckout(cars.id)}
+                          >
+                            Add
+                          </Button>
+                        </div>
+                      </div>
+                    </div>
                   </Card.Body>
-                  {/* <Card.Footer>
-                  {value.total}
-                  {value.discountedTotal}
-                  {value.userId}
-                  {value.totalProducts}
-                  {value.totalQuantity}
-                </Card.Footer> */}
                 </Card>
               </Col>
             ))

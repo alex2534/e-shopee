@@ -1,6 +1,28 @@
 {
   "recommendations": [
     "ms-vscode.azure-repos",
-    "ms-vscode-remote.remote-containers"
+    "ms-vscode-remote.remote-containers",
+    "visualstudioexptteam.intellicode-api-usage-examples",
+    "aepasahandev.ts-auto-import-organizer",
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-complete-tag",
+    "moppitz.vscode-extension-auto-import",
+    "formulahendry.auto-rename-tag",
+    "bracketpaircolordlw.bracket-pair-color-dlw",
+    "codeium.codeium",
+    "solomonkinard.git-blame",
+    "jaaxxx.remote-blame",
+    "donjayamanne.githistory",
+    "shaharkazaz.git-merger",
+    "github.github-vscode-theme",
+    "codezombiech.gitignore",
+    "visualstudioexptteam.vscodeintellicode",
+    "oderwat.indent-rainbow",
+    "narasimapandiyan.jetbrainsmono",
+    "pkief.material-icon-theme",
+    "durzn.brackethighlighter",
+    "jomeinaster.bracket-peek",
+    "tejasvi.rainbow-brackets-2",
+    "voldemortensen.rainbow-tags"
   ]
 }

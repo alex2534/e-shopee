@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { NotFound } from "./components/error/NotFound";
-import CartSearch from "./components/car/CartSearch";
- import CarCheckout from "./components/car/CarCheckout";
+import CartSearch from "./components/car/search/CartSearch";
+import CarCheckout from "./components/car/chekout/CartCheckout";
 
 function App() {
   return (
@@ -9,9 +9,9 @@ function App() {
       <Router>
         <nav>
           <ul>
-            <li>
+            {/* <li>
               <Link to="/cartapi">Cart</Link>
-            </li>
+            </li> */}
           </ul>
         </nav>
         <Routes>
@@ -23,6 +23,7 @@ function App() {
           <Route path="/cartapi" element={<CartSearch />} />
           {/* <Route path="/carwithdetails/:id" element={<CarWithDetails />} /> */}
           <Route path="/carcheckout/:id" element={<CarCheckout />} />
+          <Route path="/carcheckout" element={<CarCheckout />} />
           {/* <Route path="/cartcards" element={<CarCards data={[]} />} /> */}
           <Route path="*" element={<NotFound />} /> 404 Page
         </Routes>
