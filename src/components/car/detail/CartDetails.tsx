@@ -1,15 +1,15 @@
 import { useEffect } from "react";
- 
+
 import { useLocation } from "react-router-dom";
 
 interface IProps {
- 
+
 }
 // interface ICardata {
 //   allData: IProps[];
 // }
 
-export default function CarWithDetails( ) {
+export default function CartDetails() {
   // const [ setAllData] = useState<IProps[]>([]);
   const location = useLocation();
   // const navigate = useNavigate();
@@ -30,7 +30,7 @@ export default function CarWithDetails( ) {
   //   navigate(`/carcheckout/${id}`, { state: { itens: allData } });
   // };
   return (
-    <><div>Details</div></>
+    <><div> <h1>Details</h1></div></>
     // <div className={styles.container}>
     //   <Row key={Math.random() * 10000000} xs={1} md={2} className="g-4">
     //     {allData !== undefined &&

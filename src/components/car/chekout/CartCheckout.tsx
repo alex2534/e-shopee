@@ -9,6 +9,7 @@ import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import PaymentForm from "./PaymentForm";
+import CarWithDetails from "../detail/CartDetails";
 // import { useState } from "react";
 // import { useNavigate } from "react-router-dom";
 
@@ -58,6 +59,7 @@ export default function CartCheckout() {
         </div>
         <div className={styles.container}>
 
+
           <div>
             {contains === true ?
               (<div className={styles.emptyCart}>
@@ -67,6 +69,7 @@ export default function CartCheckout() {
               ) : (
 
                 <div className={styles.addressContainer}>
+
                   <div>
                     <div>Delivery address</div>
                   </div>
@@ -143,22 +146,23 @@ export default function CartCheckout() {
               )
             }
             <div>
+              <div>
+                <CarWithDetails />
+              </div>
             </div>
             {contains === false ? (
-              <div>Come back latter after your order is placed</div>
-            ) : (
-
-              <div>
+              <div className={styles.chekoutContainer}>
                 <PaymentForm />
               </div>
+            ) : (
+
+              <div>Come back latter after your order is placed</div>
 
             )}
           </div>
           <div className={styles.chekoutContainer}>
 
             {contains === true ? (
-              <div></div>
-            ) : (
               <div>
                 <h1>How you'll pay</h1>
                 <div>
@@ -167,6 +171,10 @@ export default function CartCheckout() {
                   <p>Total</p>
                   <p>Discount</p>
                 </div>
+              </div>
+            ) : (
+              <div>
+
               </div>
             )}
           </div>
