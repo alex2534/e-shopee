@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
@@ -42,9 +41,9 @@ export default function shopCards({ data }: ICardata) {
   // }
   // getAllProducts();
 
-  const onClickGoToDetails = (id: number) => {
-    navigate(`/carwithdetails/${id}`, { state: { itens: data } });
-  };
+  // const onClickGoToDetails = (id: number) => {
+  //   navigate(`/carwithdetails/${id}`, { state: { itens: data } });
+  // };
 
   const onClickGoToCheckout = (id: number) => {
     navigate(`/carcheckout/${id}`, { state: { itens: data } });

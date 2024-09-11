@@ -1,20 +1,20 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import styles from "./cartDetails.module.css";
+import { useLocation} from "react-router-dom";
+import styles from "./cardwithDetail.module.css"
 import { Button, Card, Row } from "react-bootstrap";
 import { Col } from "react-bootstrap";
 interface IProps {
 
 
 }
-interface ICardata {
-  allData: IProps[];
-}
+// interface ICardata {
+//   allData: IProps[];
+// }
 
 export default function CartDetails() {
   const [allData, setAllData] = useState<IProps[]>([]);
   const location = useLocation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const { state } = location.state as { state: IProps[] };
@@ -23,20 +23,20 @@ export default function CartDetails() {
   }, [location]);
 
 
-  const formatTer = new Intl.NumberFormat("pt-BR", {
-    style: "currency",
-    currency: "BRL",
-  });
+  // const formatTer = new Intl.NumberFormat("pt-BR", {
+  //   style: "currency",
+  //   currency: "BRL",
+  // });
 
-  const onClickGoToCheckout = (id: number) => {
-    navigate(`/carcheckout/${id}`, { state: { itens: allData } });
-  };
+  // const onClickGoToCheckout = (id: number) => {
+  //   navigate(`/carcheckout/${id}`, { state: { itens: allData } });
+  // };
   return (<>
     <div> <h1>Details</h1></div>
     <div className={styles.container}>
       <Row key={Math.random() * 10000000} xs={1} md={2} className="g-4">
         {allData !== undefined &&
-          allData.map((CartSearch, idx) =>
+          allData.map((_CartSearch, idx) =>
             [].map((cars) => (
               <Col key={idx}>
                 <Card>

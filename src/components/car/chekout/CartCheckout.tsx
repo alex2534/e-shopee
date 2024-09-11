@@ -1,25 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from '@mui/material/Button';
 
 import TextField from '@mui/material/TextField';
 import { MenuItem } from "@mui/material";
 
 import styles from "./cartCheckout.module.css";
-import { useForm } from "react-hook-form";
-import * as yup from "yup";
-import { yupResolver } from "@hookform/resolvers/yup";
 import PaymentForm from "./PaymentForm";
 import CarWithDetails from "../detail/CartDetails";
-// import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-
-const schema = yup
-  .object({
-    firstName: yup.string().required(),
-    age: yup.number().positive().integer().required(),
-  })
-  .required()
-
+ 
+ 
 
 const currencies = [
   {
@@ -41,14 +30,15 @@ const currencies = [
 ];
 
 export default function CartCheckout() {
-  const [open, setOpen] = useState(false);
-  const [contains, setContains] = useState(true);
+   const [contains, setContains] = useState(true);
 
-  const { control, getValues, setValue, handleSubmit, watch, formState: { errors } } = useForm({ resolver: yupResolver(schema) });
+ 
 
+  useEffect(() => {
+    setContains(false)
+  },[])
   return (
-    <>
-      <main className={styles.mainContainer}>
+    <main className={styles.mainContainer}>
         <div className={styles.headeCheckout}>
           <div>
             <h1>Your one stop shop</h1>
@@ -180,6 +170,5 @@ export default function CartCheckout() {
           </div>
         </div>
       </main >
-    </>
   );
 }

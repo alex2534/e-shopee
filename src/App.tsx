@@ -1,12 +1,11 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { NotFound } from "./components/error/NotFound";
 import CartSearch from "./components/car/search/CartSearch";
 import CarCheckout from "./components/car/chekout/CartCheckout";
 
 function App() {
   return (
-    <>
-      <Router>
+    <Router>
         <nav>
           <ul>
             {/* <li>
@@ -28,7 +27,6 @@ function App() {
           <Route path="*" element={<NotFound />} /> 404 Page
         </Routes>
       </Router>
-    </>
   );
 }
 
