@@ -10,8 +10,8 @@ svg text {
   animation: stroke 5s infinite alternate;
   stroke-width: 3;
   stroke-linecap: round;
-  stroke: #365FA0;
-  font-size: 20px;
+  stroke: #365fa0;
+  font-size: 50px;
 }
 
 @keyframes stroke {
@@ -44,19 +44,15 @@ svg text {
 }
 
 .underConstruction {
-  background-color: #FFFFFF
+  background-color: #ffffff;
 }
-
-;
 
 .container {
   display: flex;
   flex-direction: column;
-
 }
 
 .footer {
   width: 100%;
   display: flex;
-
 }

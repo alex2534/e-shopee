@@ -12,7 +12,7 @@ export default class CartApi {
     } catch (error) {
       console.error(error);
     } finally { 
-      confirm("Data Loaded");
+      // confirm("Data Loaded");
     }
 }
 }
