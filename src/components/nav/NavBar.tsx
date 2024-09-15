@@ -9,7 +9,7 @@ export default function NavBar() {
                     <Container >
                         <div className={styles.container}>
                             <h4>Made By Alex</h4>
-                            <h6>With React-typescript, css, and bootstrap</h6>
+                            <h4>With React-typescript, css, and bootstrap</h4>
                         </div>
                     </Container>
                 </Navbar>

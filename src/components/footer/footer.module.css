@@ -3,14 +3,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 2rem;
+  height: 4rem;
   bottom: 0;
   width: 100%;
   color: white;
   font-weight: 600;
   font-style: italic;
-  font-family: 'Exo 2', sans-serif;
-  font-size: xx-small;
-  background: #01010A;
-  background: linear-gradient(to right, #01010A 0%, #C7CDCF 100%);
+  font-family: "Exo 2", sans-serif;
+  font-size: xx-large;
+  background: #01010a;
+  background: linear-gradient(to right, #01010a 0%, #c7cdcf 100%);
 }

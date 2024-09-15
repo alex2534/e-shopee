@@ -1,5 +1,8 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: #ebebeb;
+  font-family: system-ui, "-apple-system", "BlinkMacSystemFont", sans-serif,
+    monospace, "cursive", "fantasy", "Times New Roman", Times, serif, Georgia,
+    "Times New Roman";
   font-synthesis: none;
   margin: 0;
   padding: 0;

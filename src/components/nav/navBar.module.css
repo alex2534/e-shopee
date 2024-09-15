@@ -4,17 +4,28 @@
   top: 0;
   left: 0;
   color: white;
-  font-family: 'Exo 2', sans-serif;
-  height: 2rem;
-  background: #01010A;
-  background: linear-gradient(to right, #01010A 0%, #C7CDCF 100%);
+  font-family: "Exo 2", sans-serif;
+  height: 4rem;
+  background: #01010a;
+  background: linear-gradient(to right, #01010a 0%, #c7cdcf 100%);
 }
 
 .container {
   display: flex;
   flex-direction: row;
-  justify-content: center;
   justify-content: space-between;
   align-items: center;
-  height: 2rem;
+  font-size: x-large;
+  height: 4rem;
+
+  & > h4:nth-child(1) {
+    padding-left: 1rem;
+  }
+
+  & > h4:nth-child(2) {
+    padding-right: 1rem;
+    background: linear-gradient(to left, #0101e4 0%, #267192 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 }

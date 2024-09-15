@@ -1,12 +1,11 @@
 import { useEffect, useState } from "react";
 import CartApi from "../../../api/CartApi";
-import CarCards from "../shopp/ShopCards";
 import NavBar from "../../nav/NavBar";
 import styles from "./carSearch.module.css";
 import Footer from "../../footer/Footer";
+import ShopCards from "../shopp/ShopCards";
 
 interface IProps {
-
   products: [
     {
       id: number;
@@ -17,57 +16,44 @@ interface IProps {
       discountPercentage: number;
       discountedTotal: number;
       thumbnail: string;
-      images: string[];
     }
   ];
 }
 
 export default function CartSearch() {
-
   const [allData, setAllData] = useState<IProps[]>([]); //CartApi.getCartData();
 
   useEffect(() => {
-      async function getAllProducts() {
-    try {
-      const data = await CartApi.getCartData().then((value) => {
-        console.log(value);
-        return value;
-      });
-      setAllData(data);
-    } catch (error) {
-      console.log("error");
-    }
+    async function getAllProducts() {
+      try {
+        const data = await CartApi.getCartData().then((value) => {
+          return value;
+        });
+        setAllData(data);
+      } catch (error) {
+        console.log("error");
       }
+    }
 
-      getAllProducts();
-  },[])
-
-
-  console.log(allData);
+    getAllProducts();
+  }, []);
 
   return (
     <>
-      <div >
+      <div>
         <NavBar />
       </div>
       <div className={styles.container}>
         <div>
           <div>
             <div className={styles.underConstruction}>
-              <svg>
-                <text x="50%" y="50%" dy=".35em" text-anchor="middle">
-                  UNDER CONSTRUCTION PLEASE BE PATIENT
-                </text>
-              </svg>
+              <div>UNDER CONSTRUCTION PLEASE BE PATIENT</div>
             </div>
           </div>
-
         </div>
+        <div>{/* <button onClick={getAllProducts}>Click</button> */}</div>
         <div>
-          {/* <button onClick={getAllProducts}>Click</button> */}
-        </div>
-        <div>
-          <CarCards data={allData} />
+          <ShopCards data={allData} />
         </div>
         <div className={styles.footer}>
           <Footer />
