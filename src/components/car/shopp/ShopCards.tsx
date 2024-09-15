@@ -14,6 +14,9 @@ interface IProps {
       discountPercentage: number;
       discountedTotal: number;
       thumbnail: string;
+      userId: number;
+      totalProducts: number;
+      totalQuantity: number;
     }
   ];
 }
@@ -27,8 +30,22 @@ export default function shopCards({ data }: ICardata) {
   useEffect(() => {
     setAllData(data);
   }, [data]);
-  const onClickGoToDetails = (cart: any) => {
-    navigate(`/cartdetails/${cart.id}`, { state: { itens: cart, allData } });
+  const onClickGoToDetails = (cart: {
+    id: number;
+    title: string;
+    price: number;
+    quantity: number;
+    total: number;
+    discountPercentage: number;
+    discountedTotal: number;
+    thumbnail: string;
+    userId: number;
+    totalProducts: number;
+    totalQuantity: number;
+  }) => {
+    navigate(`/cartdetails/${cart.id}`, {
+      state: { itens: cart, allData },
+    });
   };
 
   const onClickGoToCheckout = (id: number) => {

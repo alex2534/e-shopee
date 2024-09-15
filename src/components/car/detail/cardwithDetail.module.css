@@ -1,18 +1,45 @@
 .container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
   margin-left: 2%;
   border-radius: 8px;
+}
+.detailsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.colContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .imgContainer {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
+  width: 25rem;
+  max-width: 25;
 }
+
 .titleContainer {
   font-weight: 800;
+  font-size: x-large;
+  width: 30rem;
   margin-left: 3%;
   margin-right: 3%;
+}
+
+.titleTextContainer {
+  display: flex;
+  flex-direction: column;
+  margin-left: 3%;
+  margin-right: 3%;
+  font-weight: 600;
+  margin-top: auto;
+  margin-bottom: auto;
+  /* width: 30rem; */
 }
 
 .textContainer {
@@ -21,12 +48,12 @@
   margin-left: 3%;
   margin-right: 3%;
   font-weight: 600;
-  font-style: italic;
   & > span {
     display: flex;
     flex-direction: column;
     margin-bottom: 0.8%;
     font-weight: 600;
+    margin-bottom: 2%;
 
     & > span:nth-child(1) {
       display: flex;
@@ -38,31 +65,42 @@
     }
   }
 }
+
+.checkoutContainer {
+  display: flex;
+  flex-direction: column;
+  width: 70rem;
+  margin-left: 3%;
+  margin-right: 5%;
+}
 .btnContainer {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
-  width: 18%;
 }
 .btns {
   display: flex;
   justify-content: center;
   cursor: pointer;
-  background-color: #514bbd;
-  color: white;
+  /* background-color: #514bbd; */
+  /* color: white; */
   padding-left: 1%;
   padding-top: 4%;
   padding-bottom: 4%;
   margin-bottom: 2rem;
-  border: solid 1px blue;
-  border-radius: 5px;
+  /* border: solid 1px blue; */
+  border-top-left-radius: 8%;
+  border-top-right-radius: 8%;
+  border-bottom-left-radius: 8%;
+  border-bottom-right-radius: 8%;
+  font-weight: 600;
   width: 100%;
 }
 
 .btns:hover {
   transition: all 0.3s ease-in-out;
   transform: scale(1.1);
-  box-shadow: 0px 0px 2px 2px rgb(54, 43, 213);
+  /* box-shadow: 0px 0px 2px 2px rgb(54, 43, 213); */
 }
 
 .footerContainer {

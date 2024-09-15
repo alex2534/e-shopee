@@ -16,12 +16,15 @@ interface IProps {
       discountPercentage: number;
       discountedTotal: number;
       thumbnail: string;
+      userId: number;
+      totalProducts: number;
+      totalQuantity: number;
     }
   ];
 }
 
 export default function CartSearch() {
-  const [allData, setAllData] = useState<IProps[]>([]); //CartApi.getCartData();
+  const [allData, setAllData] = useState<IProps[]>([]); 
 
   useEffect(() => {
     async function getAllProducts() {
