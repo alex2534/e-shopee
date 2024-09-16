@@ -12,3 +12,20 @@
   width: 100%;
   display: flex;
 }
+
+@media only screen and (max-width: 600px) {
+  .underConstruction {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 15rem;
+    font-size: large;
+  }
+
+  .footer {
+    width: 100%;
+    display: flex;
+  }
+}

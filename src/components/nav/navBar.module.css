@@ -29,3 +29,38 @@
     -webkit-text-fill-color: transparent;
   }
 }
+
+@media only screen and (max-width: 600px) {
+  .navContainer {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    color: white;
+    font-family: "Exo 2", sans-serif;
+    height: 4rem;
+    background: #01010a;
+    background: linear-gradient(to right, #01010a 0%, #c7cdcf 100%);
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: medium;
+    height: 4rem;
+
+    & > h4:nth-child(1) {
+      padding-left: 1rem;
+    }
+
+    & > h4:nth-child(2) {
+      padding-right: 1rem;
+      font-size: smaller;
+      background: linear-gradient(to left, #0101e4 0%, #267192 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
