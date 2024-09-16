@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import styles from "./cardwithDetail.module.css";
 import { Card, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
