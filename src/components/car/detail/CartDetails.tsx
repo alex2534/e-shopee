@@ -19,31 +19,12 @@ interface IProps {
   totalProducts: number;
   totalQuantity: number;
 }
-interface ICardata {
-  data?: IProps[];
-}
+
 export default function CartDetails() {
   const [allData, setAllData] = useState<IProps>();
-  // [
-  // {
-  //   products: [
-  //     {
-  //       id: 168,
-  //       title: "Charger SXT RWD",
-  //       price: 32999.99,
-  //       quantity: 3,
-  //       total: 98999.97,
-  //       discountPercentage: 13.39,
-  //       discountedTotal: 85743.87,
-  //       thumbnail:
-  //         "https://cdn.dummyjson.com/products/images/vehicle/Charger%20SXT%20RWD/thumbnail.png",
-  //     },
-  //   ],
-  // },
-  // ]
 
   const location = useLocation();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     const { itens } = location.state as { itens: IProps };
@@ -55,9 +36,9 @@ export default function CartDetails() {
     currency: "BRL",
   });
 
-  const onClickGoToCheckout = (id: number) => {
-    navigate(`/carcheckout/${id}`, { state: { itens: allData } });
-  };
+  // const onClickGoToCheckout = (id: number) => {
+  //   navigate(`/carcheckout/${id}`, { state: { itens: allData } });
+  // };
   return (
     <>
       <div className={styles.detailsContainer}>

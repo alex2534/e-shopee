@@ -48,10 +48,10 @@ export default function shopCards({ data }: ICardata) {
     });
   };
 
-  const onClickGoToCheckout = (id: number) => {
-    navigate(`/carcheckout/${id}`, { state: { itens: data } });
-    // getAllProducts;
-  };
+  // const onClickGoToCheckout = (id: number) => {
+  //   navigate(`/carcheckout/${id}`, { state: { itens: data } });
+  //   // getAllProducts;
+  // };
   const formatTer = new Intl.NumberFormat("pt-BR", {
     style: "currency",
     currency: "BRL",
