@@ -39,7 +39,6 @@
   font-weight: 600;
   margin-top: auto;
   margin-bottom: auto;
-  /* width: 30rem; */
 }
 
 .textContainer {
@@ -117,5 +116,124 @@
     flex-direction: column;
     margin-bottom: 0.5%;
     font-weight: 600;
+  }
+}
+
+@media (min-width: 500px) {
+  .container {
+    display: flex;
+    flex-direction: row;
+    padding-right: 0%;
+    margin-right: 0%;
+    border-radius: 8px;
+  }
+
+  .colContainer {
+    display: flex;
+    flex-direction: row;
+    width: 25rem;
+  }
+  .detailsContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .imgContainer {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    height: auto;
+    width: 10rem;
+    max-width: 10rem;
+    margin-left: 3%;
+  }
+
+  .titleContainer {
+    font-weight: 400;
+    font-size: x-small;
+    width: 10rem;
+    max-width: 10rem;
+  }
+
+  .titleTextContainer {
+    display: flex;
+    flex-direction: column;
+    width: 10rem;
+    max-width: 10rem;
+    font-weight: 400;
+  }
+
+  .textContainer {
+    gap: 0.5rem;
+    display: flex;
+    font-weight: 600;
+    & > span {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.8%;
+      font-weight: 600;
+      margin-bottom: 2%;
+
+      & > span:nth-child(1) {
+        display: flex;
+        font-size: large;
+        color: lightslategray;
+        font-style: italic;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+
+  .checkoutContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .btnContainer {
+    display: flex;
+    margin-top: 3%;
+  }
+  .btns {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #514bbd;
+    color: white;
+    border: solid 1px blue;
+    border-top-left-radius: 8%;
+    border-top-right-radius: 8%;
+    border-bottom-left-radius: 8%;
+    border-bottom-right-radius: 8%;
+    margin-bottom: 3%;
+    font-weight: 600;
+    width: 100%;
+  }
+
+  .btns:hover {
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.1);
+    box-shadow: 0px 0px 2px 2px rgb(54, 43, 213);
+  }
+
+  .footerContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 15rem;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-bottom: 3%;
+    font-style: italic;
+    font-weight: 600;
+
+    & > span {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0.5%;
+      font-weight: 600;
+    }
+  }
+
+  .footerContainer {
+    visibility: hidden;
   }
 }

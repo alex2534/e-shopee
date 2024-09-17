@@ -24,7 +24,7 @@ interface IProps {
 }
 
 export default function CartSearch() {
-  const [allData, setAllData] = useState<IProps[]>([]); 
+  const [allData, setAllData] = useState<IProps[]>([]);
 
   useEffect(() => {
     async function getAllProducts() {
@@ -40,6 +40,10 @@ export default function CartSearch() {
 
     getAllProducts();
   }, []);
+
+  if (/Mobi|Android|iPhone/i.test(navigator.userAgent)) {
+    console.log("mobile");
+  }
 
   return (
     <>

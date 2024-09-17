@@ -30,7 +30,9 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
+/* For Mobile Portrait View */
+
+@media only screen and (max-width: 600px) and (orientation: portrait) {
   .navContainer {
     position: fixed;
     width: 100%;
@@ -52,13 +54,57 @@
     height: 4rem;
 
     & > h4:nth-child(1) {
-      padding-left: 1rem;
+      padding-right: 1rem;
+      font-size: smaller;
+      white-space: nowrap;
+      outline: none;
     }
 
     & > h4:nth-child(2) {
-      padding-right: 1rem;
-      font-size: smaller;
+      padding-right: 2rem;
+      font-size: x-small;
       background: linear-gradient(to left, #0101e4 0%, #267192 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+}
+
+/* For Mobile Landscape View */
+@media (min-width: 500px) {
+  .navContainer {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    color: white;
+    font-family: "Exo 2", sans-serif;
+    height: 4rem;
+    background: #01010a;
+    background: linear-gradient(to right, #01010a 0%, #c7cdcf 100%);
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: medium;
+    height: 4rem;
+    /* background-color: blue; */
+
+    & > h4:nth-child(1) {
+      /* padding-right: 1rem; */
+      font-size: large;
+      white-space: nowrap;
+      outline: none;
+    }
+
+    & > h4:nth-child(2) {
+      padding-right: 2rem;
+      font-size: large;
+      background: linear-gradient(to left, #0101e4 0%, #267192 100%);
+      font-weight: 600;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }

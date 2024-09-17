@@ -33,3 +33,22 @@
     background: linear-gradient(to right, #01010a 0%, #c7cdcf 100%);
   }
 }
+
+@media (min-width: 500px) {
+  .container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 4rem;
+    bottom: 0;
+    width: 100%;
+    color: white;
+    font-weight: 600;
+    font-style: italic;
+    font-family: "Exo 2", sans-serif;
+    font-size: large;
+    background: #01010a;
+    background: linear-gradient(to right, #01010a 0%, #c7cdcf 100%);
+  }
+}

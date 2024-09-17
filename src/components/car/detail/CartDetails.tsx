@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import styles from "./cardwithDetail.module.css";
 import { Col, Card, Row } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
@@ -22,7 +22,7 @@ export default function CartDetails() {
   const [allData, setAllData] = useState<IProps>();
 
   const location = useLocation();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const { itens } = location.state as { itens: IProps };
@@ -34,9 +34,9 @@ export default function CartDetails() {
     currency: "BRL",
   });
 
-  // const onClickGoToCheckout = (id: number) => {
-  //   navigate(`/carcheckout/${id}`, { state: { itens: allData } });
-  // };
+  const onClickGoToCheckout = (id: number) => {
+    navigate(`/carcheckout/${id}`, { state: { itens: allData } });
+  };
   return (
     <>
       <div className={styles.detailsContainer}>
@@ -112,10 +112,16 @@ export default function CartDetails() {
             </p>
           </div>
           quantity
-          <section className={styles.btnContainer}>
-            <Button variant="primary">Primary</Button>{" "}
-            <Button className={styles.btns} variant="outline-primary">
-              Primary
+          <div className={styles.btnContainer}>
+            <Button className={styles.btns} variant="primary">
+              Add to cart
+            </Button>{" "}
+            <Button
+              className={styles.btns}
+              variant="outline-primary"
+              onClick={() => onClickGoToCheckout(1)}
+            >
+              Checkout
             </Button>{" "}
             {/* <Button className={styles.btns}>Add to cart</Button>
             <Button
@@ -124,7 +130,7 @@ export default function CartDetails() {
             >
               Buy Now
             </Button> */}
-          </section>
+          </div>
         </div>
       </div>
     </>
